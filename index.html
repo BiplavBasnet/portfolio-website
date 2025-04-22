@@ -1,0 +1,699 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Biplav Basnet, AWS Certified Cloud Security Engineer" />
+  <meta name="keywords" content="Cloud Security Engineer, AWS, Portfolio, Biplav Basnet" />
+  <meta name="author" content="Biplav Basnet" />
+  <meta property="og:title" content="Biplav Basnet | Cloud Security Engineer" />
+  <meta property="og:description" content="Explore projects, certifications, and blogs from Biplav Basnet, AWS Certified Cloud Security Engineer" />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="./og-image.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Biplav Basnet | Cloud Security Engineer" />
+  <meta name="twitter:description" content="Explore projects, certifications, and blogs from Biplav Basnet, AWS Certified Cloud Security Engineer" />
+  <meta name="twitter:image" content="./og-image.png" />
+  <meta name="theme-color" content="#5B21B6" />
+  <title>Biplav Basnet | Cloud Security Engineer</title>
+  <!-- Tailwind CSS CDN -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" />
+  <!-- Google Fonts -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@600;700&family=Inter:wght@400;500&display=swap" />
+  <!-- Lucide Icons CDN -->
+  <script src="https://unpkg.com/lucide@0.291.0/dist/umd/lucide.min.js"></script>
+  <style>
+    :root {
+      --color-primary: #5B21B6; /* Modern purple for innovation and trust */
+      --color-secondary: #D4D4D8; /* Light gray for accents, inspired by zebra white */
+      --color-zebra-black: #18181B; /* Deep black for zebra pattern and dark mode */
+      --color-zebra-white: #FAFAFA; /* Off-white for zebra pattern and light mode */
+      --color-bg-light: #FAFAFA; /* Off-white for light mode background */
+      --color-bg-dark: #18181B; /* Deep black for dark mode background */
+      --color-card-light: #FFFFFF; /* White for cards in light mode */
+      --color-card-dark: #2F2F34; /* Slightly lighter gray for cards in dark mode */
+      --color-text-light: #18181B; /* Deep black for text in light mode */
+      --color-text-dark: #D4D4D8; /* Light gray for text in dark mode */
+      --color-subtext-dark: #A1A1AA; /* Slightly darker gray for secondary text in dark mode */
+      --color-border-light: #D4D4D8; /* Light gray for borders in light mode */
+      --color-border-dark: #3F3F46; /* Darker gray for borders in dark mode */
+      --color-hover-light: #EDE9FE; /* Light purple for hover backgrounds in light mode */
+      --color-hover-dark: #7C3AED; /* Lighter purple for hover backgrounds in dark mode */
+      --color-focus: #A78BFA; /* Lighter purple for focus rings */
+    }
+
+    /* Custom Styles */
+    html {
+      scroll-behavior: smooth;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+    body {
+      font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--color-bg-light) 0%, #F5F3FF 100%);
+      color: var(--color-text-light);
+    }
+    body.dark {
+      background: linear-gradient(135deg, var(--color-bg-dark) 0%, #2B1647 100%);
+      color: var(--color-text-dark);
+    }
+    h1, h2, h3, h4, h5, h6 {
+      font-family: 'Poppins', sans-serif;
+      letter-spacing: 0.02em;
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    }
+    .dark h1, .dark h2, .dark h3, .dark h4, .dark h5, .dark h6 {
+      text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
+    .zebra-blob {
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      background: repeating-linear-gradient(
+        45deg,
+        var(--color-zebra-black) 0px,
+        var(--color-zebra-black) 15px,
+        var(--color-zebra-white) 15px,
+        var(--color-zebra-white) 30px
+      );
+      border-radius: 50%;
+      opacity: 0.15;
+      filter: blur(10px);
+      z-index: -1;
+      overflow: hidden;
+    }
+    .zebra-blob::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, transparent 40%, var(--color-primary) 100%);
+      opacity: 0.2;
+    }
+    .dark-toggle {
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      border-radius: 9999px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-hover-dark));
+      color: white;
+      font-size: 1.25rem;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    .dark-toggle:hover {
+      background: var(--color-secondary);
+      transform: scale(1.1);
+      box-shadow: 0 0 15px var(--color-focus);
+    }
+    .dark-toggle:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px var(--color-focus);
+    }
+    .dark-toggle i {
+      transition: transform 0.3s ease;
+    }
+    .dark-toggle.active i {
+      transform: rotate(180deg);
+    }
+    .sr-only {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      border: 0;
+    }
+    .card {
+      background-color: var(--color-card-light);
+      border-radius: 1rem;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+      border: 1px solid transparent;
+      background-clip: padding-box;
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease, background 0.3s ease;
+    }
+    .card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 1rem;
+      padding: 1px;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-hover-dark));
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor;
+      mask-composite: exclude;
+      z-index: -1;
+    }
+    .dark .card {
+      background-color: var(--color-card-dark);
+    }
+    .card:hover {
+      transform: translateY(-4px) rotate(2deg) scale(1.02);
+      background: linear-gradient(135deg, var(--color-hover-light), #F5F3FF);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15), 0 0 20px var(--color-focus);
+    }
+    .dark .card:hover {
+      background: linear-gradient(135deg, var(--color-hover-dark), var(--color-primary));
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6), 0 0 20px var(--color-focus);
+    }
+    /* Glass Navbar Styles */
+    header {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+      transition: background 0.3s ease;
+    }
+    .dark header {
+      background: rgba(24, 24, 27, 0.15);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    }
+    #mobile-menu {
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      transition: background 0.3s ease;
+    }
+    .dark #mobile-menu {
+      background: rgba(24, 24, 27, 0.15);
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+    }
+    /* Buttons and Links */
+    a:not([href]), button {
+      cursor: pointer;
+    }
+    a:not(.no-underline):hover, button:hover {
+      text-decoration: none;
+    }
+    .btn-primary {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, var(--color-primary), var(--color-hover-dark));
+      color: white;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.5rem;
+      font-weight: 500;
+      transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    .btn-primary:hover {
+      background: var(--color-secondary);
+      transform: scale(1.05);
+      box-shadow: 0 0 15px var(--color-focus);
+    }
+    .btn-primary:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px var(--color-focus);
+      transform: scale(1.02);
+    }
+    .btn-primary:active {
+      transform: scale(0.98);
+    }
+    .link-primary {
+      color: var(--color-primary);
+      position: relative;
+      transition: color 0.3s ease;
+    }
+    .link-primary::after {
+      content: '';
+      position: absolute;
+      width: 0;
+      height: 2px;
+      bottom: -2px;
+      left: 0;
+      background-color: var(--color-secondary);
+      transition: width 0.3s ease;
+    }
+    .link-primary:hover {
+      color: var(--color-secondary);
+    }
+    .link-primary:hover::after {
+      width: 100%;
+    }
+    .link-primary:focus {
+      outline: none;
+      box-shadow: 0 0 0 3px var(--color-focus);
+      border-radius: 0.25rem;
+      transform: scale(1.02);
+    }
+    /* Form Elements */
+    input, textarea {
+      background: linear-gradient(135deg, var(--color-card-light), #F5F3FF);
+      border: 1px solid var(--color-border-light);
+      color: var(--color-text-light);
+      border-radius: 0.5rem;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+    }
+    .dark input, .dark textarea {
+      background: linear-gradient(135deg, var(--color-card-dark), #2B1647);
+      border: 1px solid var(--color-border-dark);
+      color: var(--color-text-dark);
+    }
+    input:focus, textarea:focus {
+      border-color: var(--color-primary);
+      box-shadow: 0 0 0 3px var(--color-focus);
+      transform: scale(1.01);
+    }
+    /* Hover Effects for Skills Cards */
+    .group:hover .bg-gray-800 {
+      background: linear-gradient(135deg, var(--color-primary), var(--color-hover-dark));
+    }
+    .dark .group:hover .bg-gray-800 {
+      background: var(--color-secondary);
+    }
+    /* CSS Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px) scale(0.95);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+    @keyframes fadeInCard {
+      from {
+        opacity: 0;
+        transform: translateY(20px) rotate(0deg);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0) rotate(0deg);
+      }
+    }
+    @keyframes scaleHover {
+      to {
+        transform: scale(1.05);
+      }
+    }
+    @keyframes scaleTap {
+      to {
+        transform: scale(0.95);
+      }
+    }
+    @keyframes cardHover {
+      to {
+        transform: translateY(-4px) rotate(2deg) scale(1.02);
+      }
+    }
+    .animate-section {
+      opacity: 0;
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    .animate-card {
+      opacity: 0;
+      animation: fadeInCard 0.6s ease-out forwards;
+    }
+    .animate-card:nth-child(1) { animation-delay: 0.2s; }
+    .animate-card:nth-child(2) { animation-delay: 0.4s; }
+    .animate-card:nth-child(3) { animation-delay: 0.6s; }
+    .animate-card:nth-child(4) { animation-delay: 0.8s; }
+    button:hover, a[role="button"]:hover, a[download]:hover {
+      animation: scaleHover 0.3s ease forwards;
+    }
+    button:active, a[role="button"]:active, a[download]:active {
+      animation: scaleTap 0.3s ease forwards;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+      transition: opacity 0.3s ease, transform 0.3s ease;
+    }
+    img:hover {
+      transform: scale(1.02);
+    }
+    img[loading="lazy"] {
+      opacity: 0;
+    }
+    img[loading="lazy"][lazy-loaded] {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  <!-- Skip to Content Link -->
+  <a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:bg-[var(--color-primary)] focus:text-white focus:p-2">
+    Skip to content
+  </a>
+
+  <!-- Header -->
+  <header class="sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+      <h1 class="text-2xl font-bold text-[var(--color-primary)]">Biplav Basnet</h1>
+      <nav class="hidden md:flex space-x-6">
+        <a href="#about" class="link-primary px-3 py-2 rounded text-lg hover:bg-[var(--color-hover-light)] dark:hover:bg-[var(--color-hover-dark)]">About</a>
+        <a href="#certifications" class="link-primary px-3 py-2 rounded text-lg hover:bg-[var(--color-hover-light)] dark:hover:bg-[var(--color-hover-dark)]">Certifications</a>
+        <a href="#skills" class="link-primary px-3 py-2 rounded text-lg hover:bg-[var(--color-hover-light)] dark:hover:bg-[var(--color-hover-dark)]">Skills</a>
+        <a href="#projects" class="link-primary px-3 py-2 rounded text-lg hover:bg-[var(--color-hover-light)] dark:hover:bg-[var(--color-hover-dark)]">Projects</a>
+        <a href="#blog" class="link-primary px-3 py-2 rounded text-lg hover:bg-[var(--color-hover-light)] dark:hover:bg-[var(--color-hover-dark)]">Blog</a>
+        <a href="#contact" class="link-primary px-3 py-2 rounded text-lg hover:bg-[var(--color-hover-light)] dark:hover:bg-[var(--color-hover-dark)]">Contact</a>
+      </nav>
+      <div class="dark-toggle" role="button" id="theme-toggle" aria-label="Toggle theme">
+        <i data-lucide="moon"></i>
+      </div>
+      <button class="md:hidden p-2" id="mobile-menu-toggle" aria-label="Toggle menu">
+        <svg class="w-6 h-6 text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+        </svg>
+      </button>
+    </div>
+    <nav id="mobile-menu" class="hidden md:hidden px-6 py-3">
+      <a href="#about" class="block py-3 link-primary hover:bg-[var(--color-hover-light)] dark:hover:bg-[var(--color-hover-dark)]">About</a>
+      <a href="#certifications" class="block py-3 link-primary hover:bg-[var(--color-hover-light)] dark:hover:bg-[var(--color-hover-dark)]">Certifications</a>
+      <a href="#skills" class="block py-3 link-primary hover:bg-[var(--color-hover-light)] dark:hover:bg-[var(--color-hover-dark)]">Skills</a>
+      <a href="#projects" class="block py-3 link-primary hover:bg-[var(--color-hover-light)] dark:hover:bg-[var(--color-hover-dark)]">Projects</a>
+      <a href="#blog" class="block py-3 link-primary hover:bg-[var(--color-hover-light)] dark:hover:bg-[var(--color-hover-dark)]">Blog</a>
+      <a href="#contact" class="block py-3 link-primary hover:bg-[var(--color-hover-light)] dark:hover:bg-[var(--color-hover-dark)]">Contact</a>
+    </nav>
+  </header>
+
+  <!-- Main Content -->
+  <main id="main-content">
+    <!-- Hero Section -->
+    <section id="hero" class="py-24 px-6 relative animate-section">
+      <div class="zebra-blob -top-20 -left-20"></div>
+      <div class="max-w-7xl mx-auto text-center">
+        <h2 class="text-5xl md:text-7xl font-bold text-[var(--color-primary)] mb-6">Cloud Security Engineer</h2>
+        <p class="text-xl md:text-2xl text-[var(--color-text-light)] dark:text-[var(--color-text-dark)] mb-8 font-light">AWS-Certified | Secure Architectures</p>
+        <a href="./resume.pdf" download class="btn-primary">
+          Download Resume
+        </a>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20 px-6 relative animate-section">
+      <div class="zebra-blob -top-20 -right-20"></div>
+      <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-12">
+        <div>
+          <h2 class="text-4xl font-bold mb-6 text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">About Me</h2>
+          <p class="text-lg text-[var(--color-text-light)] dark:text-[var(--color-text-dark)] leading-relaxed">
+            I’m Biplav Basnet, a passionate Cloud Security Engineer with a degree from Softwarica College of IT and E-commerce. Specializing in secure cloud architectures, I leverage my AWS certifications and skills in HTML, CSS, JavaScript, and Python to build robust solutions. My mission is to protect digital assets with innovative security practices.
+          </p>
+        </div>
+        <div>
+          <img src="./profile.jpg" alt="Biplav Basnet" class="rounded-xl shadow-lg" loading="lazy" />
+        </div>
+      </div>
+    </section>
+
+    <!-- Certifications Section -->
+    <section id="certifications" class="py-20 px-6 relative animate-section">
+      <div class="zebra-blob -top-20 -left-20"></div>
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 text-center text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">Certifications</h2>
+        <div class="grid md:grid-cols-3 gap-8">
+          <div class="card p-10 animate-card">
+            <img src="./aws-cloud-practitioner.png" alt="AWS Certified Cloud Practitioner badge" class="w-32 h-32 mx-auto mb-6" loading="lazy" />
+            <h3 class="text-2xl font-semibold text-center text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">AWS Certified Cloud Practitioner</h3>
+            <p class="text-gray-500 dark:text-[var(--color-subtext-dark)] text-center mt-2">Foundational</p>
+          </div>
+          <div class="card p-10 animate-card">
+            <img src="./aws-sysops.png" alt="AWS Certified SysOps Administrator badge" class="w-32 h-32 mx-auto mb-6" loading="lazy" />
+            <h3 class="text-2xl font-semibold text-center text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">AWS Certified SysOps Administrator</h3>
+            <p class="text-gray-500 dark:text-[var(--color-subtext-dark)] text-center mt-2">Associate</p>
+          </div>
+          <div class="card p-10 animate-card">
+            <img src="./aws-security.png" alt="AWS Certified Security – Specialty badge" class="w-32 h-32 mx-auto mb-6" loading="lazy" />
+            <h3 class="text-2xl font-semibold text-center text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">AWS Certified Security</h3>
+            <p class="text-gray-500 dark:text-[var(--color-subtext-dark)] text-center mt-2">Specialty</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="py-20 px-6 relative animate-section">
+      <div class="zebra-blob -top-20 -right-20"></div>
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 text-center text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">Skills</h2>
+        <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div class="card p-8 relative group animate-card">
+            <h3 class="text-2xl font-semibold mb-6">Cloud</h3>
+            <ul class="space-y-3">
+              <li class="text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">AWS</li>
+              <li class="text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">Cloud Security</li>
+            </ul>
+            <div class="absolute invisible group-hover:visible bg-gray-800 text-white text-sm rounded py-2 px-3 -top-12 left-1/2 transform -translate-x-1/2 transition-opacity">
+              Expert in AWS services and secure cloud configurations
+            </div>
+          </div>
+          <div class="card p-8 relative group animate-card">
+            <h3 class="text-2xl font-semibold mb-6">Frontend</h3>
+            <ul class="space-y-3">
+              <li class="text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">HTML</li>
+              <li class="text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">CSS</li>
+              <li class="text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">JavaScript</li>
+            </ul>
+            <div class="absolute invisible group-hover:visible bg-gray-800 text-white text-sm rounded py-2 px-3 -top-12 left-1/2 transform -translate-x-1/2 transition-opacity">
+              Proficient in building responsive web interfaces
+            </div>
+          </div>
+          <div class="card p-8 relative group animate-card">
+            <h3 class="text-2xl font-semibold mb-6">Security</h3>
+            <ul class="space-y-3">
+              <li class="text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">Penetration Testing</li>
+              <li class="text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">Secure Architecture</li>
+            </ul>
+            <div class="absolute invisible group-hover:visible bg-gray-800 text-white text-sm rounded py-2 px-3 -top-12 left-1/2 transform -translate-x-1/2 transition-opacity">
+              Skilled in identifying and mitigating security risks
+            </div>
+          </div>
+          <div class="card p-8 relative group animate-card">
+            <h3 class="text-2xl font-semibold mb-6">Scripting</h3>
+            <ul class="space-y-3">
+              <li class="text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">Python</li>
+            </ul>
+            <div class="absolute invisible group-hover:visible bg-gray-800 text-white text-sm rounded py-2 px-3 -top-12 left-1/2 transform -translate-x-1/2 transition-opacity">
+              Advanced scripting for automation and security tools
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 px-6 relative animate-section">
+      <div class="zebra-blob -top-20 -left-20"></div>
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 text-center text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">Projects</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="card p-8 animate-card">
+            <img src="./project1.jpg" alt="Secure Cloud Dashboard" class="rounded-lg mb-6" loading="lazy" />
+            <h3 class="text-2xl font-semibold mb-3">Secure Cloud Dashboard</h3>
+            <p class="text-[var(--color-text-light)] dark:text-[var(--color-text-dark)] mb-6">A dashboard for monitoring AWS security configurations.</p>
+            <div class="flex flex-wrap gap-3 mb-6">
+              <span class="bg-[var(--color-primary)]/10 text-[var(--color-primary)] px-3 py-1 rounded-md text-sm">JavaScript</span>
+              <span class="bg-[var(--color-primary)]/10 text-[var(--color-primary)] px-3 py-1 rounded-md text-sm">AWS</span>
+            </div>
+            <div class="flex space-x-6">
+              <a href="https://github.com" aria-label="GitHub" class="link-primary">
+                <i data-lucide="github" class="w-6 h-6"></i>
+              </a>
+              <a href="https://example.com" class="link-primary">Live Demo</a>
+            </div>
+          </div>
+          <div class="card p-8 animate-card">
+            <img src="./project2.jpg" alt="Penetration Testing Tool" class="rounded-lg mb-6" loading="lazy" />
+            <h3 class="text-2xl font-semibold mb-3">Penetration Testing Tool</h3>
+            <p class="text-[var(--color-text-light)] dark:text-[var(--color-text-dark)] mb-6">A Python-based tool for automated security scans.</p>
+            <div class="flex flex-wrap gap-3 mb-6">
+              <span class="bg-[var(--color-primary)]/10 text-[var(--color-primary)] px-3 py-1 rounded-md text-sm">Python</span>
+              <span class="bg-[var(--color-primary)]/10 text-[var(--color-primary)] px-3 py-1 rounded-md text-sm">AWS</span>
+            </div>
+            <div class="flex space-x-6">
+              <a href="https://github.com" aria-label="GitHub" class="link-primary">
+                <i data-lucide="github" class="w-6 h-6"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Blog Section -->
+    <section id="blog" class="py-20 px-6 relative animate-section">
+      <div class="zebra-blob -top-20 -right-20"></div>
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 text-center text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">Blog</h2>
+        <div class="grid md:grid-cols-2 gap-8">
+          <div class="card p-8 animate-card">
+            <h3 class="text-2xl font-semibold mb-3">Securing AWS S3 Buckets</h3>
+            <p class="text-gray-500 dark:text-gray-400 mb-3">2025-03-15</p>
+            <p class="text-[var(--color-text-light)] dark:text-[var(--color-text-dark)] mb-6">A guide to preventing common S3 misconfigurations.</p>
+            <a href="./blog/securing-s3.html" class="link-primary">Read More</a>
+          </div>
+          <div class="card p-8 animate-card">
+            <h3 class="text-2xl font-semibold mb-3">Introduction to Penetration Testing</h3>
+            <p class="text-gray-500 dark:text-gray-400 mb-3">2025-02-10</p>
+            <p class="text-[var(--color-text-light)] dark:text-[var(--color-text-dark)] mb-6">Learn the basics of ethical hacking.</p>
+            <a href="./blog/pen-testing.html" class="link-primary">Read More</a>
+          </div>
+        </div>
+        <div class="text-center mt-10">
+          <a href="./blog" class="link-primary px-5 py-3 rounded text-lg hover:bg-[var(--color-hover-light)] dark:hover:bg-[var(--color-hover-dark)]">View All Posts</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 px-6 relative animate-section">
+      <div class="zebra-blob -top-20 -left-20"></div>
+      <div class="max-w-7xl mx-auto">
+        <h2 class="text-4xl font-bold mb-12 text-center text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">Get in Touch</h2>
+        <div class="max-w-lg mx-auto">
+          <form id="contact-form" class="space-y-6">
+            <input
+              type="text"
+              placeholder="Name"
+              class="w-full p-4 rounded-lg border focus:outline-none"
+              required
+            />
+            <input
+              type="email"
+              placeholder="Email"
+              class="w-full p-4 rounded-lg border focus:outline-none"
+              required
+            />
+            <textarea
+              placeholder="Message"
+              class="w-full p-4 rounded-lg border focus:outline-none"
+              rows="5"
+              required
+            ></textarea>
+            <button type="submit" class="btn-primary w-full">
+              Send Message
+            </button>
+          </form>
+          <div class="flex justify-center space-x-6 mt-8">
+            <a href="https://github.com" aria-label="GitHub" class="link-primary">
+              <i data-lucide="github" class="w-7 h-7"></i>
+            </a>
+            <a href="https://linkedin.com" aria-label="LinkedIn" class="link-primary">
+              <i data-lucide="linkedin" class="w-7 h-7"></i>
+            </a>
+            <a href="mailto:example@email.com" aria-label="Email" class="link-primary">
+              <i data-lucide="mail" class="w-7 h-7"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-[var(--color-card-light)] dark:bg-[var(--color-card-dark)] py-8 border-t border-[var(--color-border-light)] dark:border-[var(--color-border-dark)]">
+    <div class="max-w-7xl mx-auto text-center">
+      <p class="text-[var(--color-text-light)] dark:text-[var(--color-text-dark)]">
+        © <span id="year"></span> Biplav Basnet. All rights reserved.
+      </p>
+      <button
+        onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+        class="mt-6 link-primary px-5 py-3 rounded text-lg hover:bg-[var(--color-hover-light)] dark:hover:bg-[var(--color-hover-dark)]"
+      >
+        Back to Top
+      </button>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    // Debugging Logs
+    console.log('Script loaded');
+
+    // Initialize Lucide Icons
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('DOM fully loaded');
+      lucide.createIcons();
+    });
+
+    // Theme Toggle
+    function safeLocalStorage(action, key, value) {
+      try {
+        if (typeof window.localStorage === 'undefined') return null;
+        if (action === 'get') return window.localStorage.getItem(key);
+        if (action === 'set') window.localStorage.setItem(key, value);
+      } catch (e) {
+        console.warn('localStorage access blocked or unsupported:', e);
+        return null;
+      }
+    }
+
+    function applyTheme(theme) {
+      const html = document.documentElement;
+      const toggleButton = document.getElementById('theme-toggle');
+      const icon = toggleButton.querySelector('i');
+      if (theme === 'dark') {
+        html.classList.add('dark');
+        icon.setAttribute('data-lucide', 'sun');
+        toggleButton.classList.add('active');
+      } else {
+        html.classList.remove('dark');
+        icon.setAttribute('data-lucide', 'moon');
+        toggleButton.classList.remove('active');
+      }
+      lucide.createIcons();
+    }
+
+    function toggleDarkMode() {
+      try {
+        const html = document.documentElement;
+        const isDark = html.classList.toggle('dark');
+        const toggleButton = document.getElementById('theme-toggle');
+        const icon = toggleButton.querySelector('i');
+        icon.setAttribute('data-lucide', isDark ? 'sun' : 'moon');
+        toggleButton.classList.toggle('active');
+        lucide.createIcons();
+        safeLocalStorage('set', 'theme', isDark ? 'dark' : 'light');
+      } catch (e) {
+        console.warn('Dark mode toggle failed:', e);
+      }
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const toggleButton = document.getElementById('theme-toggle');
+      toggleButton.addEventListener('click', toggleDarkMode);
+      try {
+        const savedTheme = safeLocalStorage('get', 'theme');
+        const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        applyTheme(savedTheme || (prefersDark ? 'dark' : 'light'));
+      } catch (e) {
+        console.warn('Initial theme setup failed:', e);
+      }
+
+      // Mobile Menu Toggle
+      const mobileMenuToggle = document.getElementById('mobile-menu-toggle');
+      const mobileMenu = document.getElementById('mobile-menu');
+      mobileMenuToggle.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+      });
+
+      // Set Copyright Year
+      document.getElementById('year').textContent = new Date().getFullYear();
+
+      // Contact Form Submission
+      const form = document.getElementById('contact-form');
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        alert('Form submitted!');
+        form.reset();
+      });
+
+      // Lazy Load Images
+      document.querySelectorAll('img[loading="lazy"]').forEach(img => {
+        img.addEventListener('load', () => {
+          img.setAttribute('lazy-loaded', 'true');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
